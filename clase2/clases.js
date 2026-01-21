@@ -22,7 +22,7 @@ console.log(persona2.nombreCompleto()); */
 class Auto {
     constructor(valor1="Sin Marca", valor2, valor3=0, valor4, valor5) {
         this.marca = valor1;
-        this.modelo = valor2 ? valor2 : "Sin Modelo";
+        this.modelo = valor2.length>0 ? valor2 : "Sin Modelo";
         this.puertas = valor3;
         this.motor = valor4 ? valor4 : 0;
         this.precio = (valor5) ? valor5 : 0;
@@ -31,7 +31,7 @@ class Auto {
 
     getInfo() {
         let vendido = this.vendido ? "[VENDIDO]" : "[EN VENTA]";
-        return `Marca: ${this.marca}\nModelo: ${this.modelo}\nPuertas: ${this.puertas}\nMotor: ${this.motor}\nPrecio: $${this.precio}\nEstado: ${vendido}`;
+        return `Marca: ${this.marca}\nModelo: ${this.modelo}\nPuertas: ${this.puertas} puertas\nMotor: ${this.motor} cc\nPrecio: $${this.precio} dólares\nEstado: ${vendido}`;
     }
 
     vender() {
@@ -39,8 +39,6 @@ class Auto {
     }
 }
 
-const auto = new Auto();
-//auto.vender();
+const auto = new Auto("Chery", "QQ", 5, 1.1, 10000);
+auto.vender();
 console.log(auto.getInfo());
-
-

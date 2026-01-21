@@ -18,5 +18,48 @@ Observaciones:
 /* Comentario de una sola línea */
 
 class Contador {
+    constructor(nombre) {
+        this.responsable = nombre;
+        this.cuentaIndividual = 0;
+    }
 
+    static cuentaGlobal = 0; // propiedad estática (variable que tienen en común todas las instancias de la Clase Contador)
+
+    getResponsable() {
+        return this.responsable;
+    }
+
+    contar() {
+        this.cuentaIndividual++;
+        Contador.cuentaGlobal++;
+    }
+
+    getCuentaIndividual() {
+        return this.cuentaIndividual;
+    }
+
+    getCuentaGlobal() {
+        return Contador.cuentaGlobal;
+    }
 }
+
+const contador1 = new Contador("Contador #1");
+const contador2 = new Contador("Contador #2");
+const contador3 = new Contador("Contador #3");
+
+contador1.contar();
+contador1.contar();
+contador2.contar();
+contador2.contar();
+contador2.contar();
+contador3.contar();
+contador3.contar();
+contador3.contar();
+contador3.contar();
+console.log(contador1.getResponsable());
+console.log("Conteo: " + contador1.getCuentaIndividual());
+console.log(contador2.getResponsable());
+console.log("Conteo: " + contador2.getCuentaIndividual());
+console.log(contador3.getResponsable());
+console.log("Conteo: " + contador3.getCuentaIndividual());
+console.log("Contador Global: " + contador3.getCuentaGlobal());
